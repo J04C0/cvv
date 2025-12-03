@@ -1,0 +1,160 @@
+% ------------------------------------------------------------
+% ENCABEZADOS
+% ------------------------------------------------------------
+
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{fontspec}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{pdflscape}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[paper=portrait,pagesize]{typearea}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{ref.bib}
+% Paquetes de matemática
+\usepackage {graphicx}
+\usepackage {amssymb,amsfonts,amsthm,srcltx}
+\usepackage {amsmath}
+\usepackage{amssymb}
+\usepackage {mathrsfs}
+
+% Encabezado y numero de pagina
+\usepackage{fancyhdr}
+\fancypagestyle{mipagina}{%
+  \fancyhf{} % limpiar todo
+
+  % Logo izquierda
+  \fancyhead[L]{%
+    \raisebox{-0.2cm}{\includegraphics[height=1.5cm]{Imagenes/ortlogo.png}}
+  }
+
+  % Logo derecha
+  \fancyhead[R]{%
+    \raisebox{-0.2cm}{\includegraphics[height=1.5cm]{Imagenes/logo_catmat.png}}
+  }
+
+  % Espacio por debajo del encabezado
+  \addtolength{\headsep}{5pt}
+
+  % Línea
+  \renewcommand{\headrulewidth}{0.4pt}
+
+  % Número de página centrado
+  \fancyfoot[R]{\thepage}
+}
+
+\fancypagestyle{plain}{%
+  \fancyhf{} 
+  \fancyhead[L]{%
+    \raisebox{-0.2cm}{\includegraphics[height=1.5cm]{Imagenes/ortlogo.png}}
+  }
+  \fancyhead[R]{%
+    \raisebox{-0.2cm}{\includegraphics[height=1.5cm]{Imagenes/logo_catmat.png}}
+  }
+  \renewcommand{\headrulewidth}{0.4pt}
+  \fancyfoot[R]{\thepage}
+}
+
+% Eliminar titulo de capitulo por defecto
+\titleformat{\chapter}[display]
+{\normalfont\bfseries}{}{0pt}{\Huge}
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\hspace{2em}\thesubsection}{1em}{}
+
+% Disminuir margen de titulo 
+\titlespacing*{\chapter}{0pt}{-50pt}{0pt}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+
+% Normas de párrafos
+\renewcommand{\baselinestretch}{1.5}
+\setlength{\parskip}{12pt}
+
+% Margenes de documento
+\newgeometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    outer=2.5cm,
+    inner=2.5cm,
+    includefoot,
+    footskip=1.5cm
+}
+
+% Redefino índice
+\def\contentsname{Índice}
+
+
+% Agrega reglas de división de palabras personalizadas en el preámbulo
+\hyphenation{e-jem-plo es-pe-ci-fí-cas ge-ne-ra-ti-va com-pues-ta par-ti-cu-lar cus-to-mi-za-ble de-sa-rro-llar res-pon-de-rá di-fe-ren-tes co-rres-pon-dien-te au-to-ma-ti-za-da se-pa-ra-da se-pa-ran-do per-te-ne-cien-tes es-ca-la-bles se-pa-rar}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\pagestyle{mipagina}
+
+% ------------------------------------------------------------
+% PORTADA
+% ------------------------------------------------------------
+
+\include{Portada}
+
+% ------------------------------------------------------------
+% INDICE
+% ------------------------------------------------------------
+
+% Este índice se realiza automáticamente al definir secciones y subsecciones
+\addtocontents{toc}{\protect\thispagestyle{empty}} 
+\tableofcontents
+
+
+
+% ------------------------------------------------------------
+% INTRODUCCIÓN
+% ------------------------------------------------------------
+
+\include{Capitulos/introduccion}
+
+% ------------------------------------------------------------
+% EJERCICIO 1
+% ------------------------------------------------------------
+
+\include{Capitulos/ejercicio1}
+
+% ------------------------------------------------------------
+% EJERCICIO 2
+% ------------------------------------------------------------
+
+\include{Capitulos/ejercicio2}
+
+% ------------------------------------------------------------
+% EJERCICIO 3
+% ------------------------------------------------------------
+
+\include{Capitulos/ejercicio3}
+
+% ------------------------------------------------------------
+% Conclusión
+% ------------------------------------------------------------
+
+\include{Capitulos/conclusion}
+
+% ------------------------------------------------------------
+% Documentos
+% ------------------------------------------------------------
+
+\printbibliography
+
+\end{document}
