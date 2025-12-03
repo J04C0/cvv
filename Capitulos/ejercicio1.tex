@@ -1,0 +1,204 @@
+\chapter{Ejercicio 1}
+
+% ------------------------------------------------------------
+% PARTE 1
+% ------------------------------------------------------------
+
+\phantomsection
+\subsection*{Enuncie el Teorema de la Función Implícita.} 
+\addcontentsline{toc}{subsection}{Enuncie el Teorema de la Función Implícita}
+
+Sean \(G_1, \dots,G_m\) funciones de clase \(C^{1}\) definidas en un abierto \(A \times B \subset \mathbb{R}^{n} \times \mathbb{R}^{m}\).
+Sea \((a,b) \in A \times B\) tal que
+\begin{equation*}
+G_i(a,b) = 0, \qquad i = 1,\dots,m.
+\end{equation*}
+y supongamos que la matriz Jacobiana respecto de las variables \(y\)
+\[
+\frac{\partial (G_1,\dots,G_m)}{\partial (y_1, \dots,y_m)}(a,b)
+\]
+es invertible (su determinante es \(\neq 0)\). Entonces existe un vecindario \(M\) de \(a\) en \(\mathbb{R}^{n}\) y una única función
+\[
+F:M\to \mathbb{R}^m
+\]
+de clase \(C^{1}\), tal que
+\[
+F(a) = b \quad \text{y} \quad G_i(x, F(x)) = 0 \quad 
+\forall x \in M,\quad \forall i = 1,\dots,m.
+\]
+Además el Jacobiano de \(F\) viene dado por,
+\[
+DF(a)= -\left[ \frac{\partial G}{\partial y}(a,b) \right]^{-1} \frac{\partial G}{\partial x}(a,b)
+\]
+\cite{loomis_sternberg_advanced_calculus}
+
+% ------------------------------------------------------------
+% PARTE 2 Y 3
+% ------------------------------------------------------------
+
+
+\subsection*{Elija una función \(f(x,y)\) y un punto \((x_0, y_0)\) para aplicar el Teorema. Explique paso a paso cómo lo aplicaría para obtener todos los elementos involucrados. ¿Qué significan los resultados obtenidos?}
+\addcontentsline{toc}{subsection}{Elija una función \(f(x,y)\) y un punto \((x_0, y_0)\)}
+
+
+Ejemplo correspondiente a la parte 2 y 3 en conjunto.
+\[
+f(x,y) = e^{xy}+y-3
+\]
+Busco un punto \((x_0,y_0)\) que satisface \(f(x_0,y_0)=0\)
+\\ Tomo \(x_0=0\)
+\[
+f(0,y)=e^{0y}+y-3=y-2
+\]
+Entonces para que \(f(x_0,y_0)=0 \to y_0=2\)
+\\ \underline{Cálculo de derivadas parciales:}
+\[
+\frac{\partial f}{\partial x}(0,2) = 2,\quad \frac{\partial f}{\partial y}(0,2)=1
+\]
+Hipótesis del Teorema
+\[
+\frac{\partial f}{\partial y} \neq 0 \to \text{Se cumple}
+\]
+Entonces existe una única función \(F\) de clase \(C^1\) definida cerca de \(x_0\) tal que
+\[
+F(0)=2, \quad f(x,F(x))=0
+\]
+Existe una función implícita \(y=F(x)\) que describe localmente la curva.
+\\ \underline{Derivada de la función implícita}
+\[
+F'(x_0)= -\left[ \frac{\partial f}{\partial y}(x_0,y_0) \right]^{-1} \frac{\partial f}{\partial x}(x_0,y_0)
+\]
+Sustituyo:
+\[
+F'(0)=-1^{-1}\times2=-2
+\]
+Aunque no es posible despejar \(y\) explícitamente de al ecuación \(e^{xy}+y-3=0\) el teorema garantiza que sí existe localmente una función \(y=F(x)\), suave y bien definida, que pasa por (0,2) y cuya pendiente en ese punto es:
+\[
+F'(0)=-2
+\]
+
+\begin{figure}[ht!] % Cambiar la h! cambia la posición de la imagen en el documento
+    \centering
+    \includegraphics[scale=0.3]{Imagenes/exy+x-3.png} % Acá va la ruta a la imagen
+    \caption{Representación de la función en Geogebra} % Pie de imagen
+    \label{fig:funcion1-side-view} % Esto sirve para referirnos a la imagen en el texto
+    \includegraphics[scale=0.3]{Imagenes/exy+x-3top.png} % Acá va la ruta a la imagen
+    \caption{Representación vista desde arriba} % Pie de imagen
+    \label{fig:funcion1-top-view}
+\end{figure}
+
+% ------------------------------------------------------------
+% PARTE 4
+% ------------------------------------------------------------
+\clearpage
+\subsection*{¿Cómo se aplica el Teorema de la Función Implícita en funciones de más de dos variables?}
+\addcontentsline{toc}{subsection}{Teorema de la Función Implícita en más de dos variables}
+
+El teorema funciona similar pero se trabaja con una variable dependiente y dos independientes. En \(f(x,y,z) \in \mathbb{R} \to z\) sería la variable dependiente.
+\\Generando así:
+\[
+z=f(x,y),
+\]
+siempre que;
+\[
+\frac{\partial f}{\partial z}(x_0,y_0,z_0) \neq 0
+\]
+En este caso, como \(f\) es una función escalar, el Jacobiano respecto de \(z\) es una matriz 1×1, cuyo valor es simplemente \(f_z\).
+\[
+\nabla F(x_0,y_0)=-(\frac{\partial f}{\partial z}(x_0,y_0,z_0))^{-1}(\frac{\frac{\partial f}{\partial x}(x_0,y_0,z_0)}{\frac{\partial f}{\partial y}(x_0,y_0,z_0)})
+\]
+\textbf{Ejemplo:}
+\[
+f(x,y,z)=x^2+y+e^z-4
+\]
+Encuentro el punto \(f(x_0,y_0,z_0)=0\), \(x_0=1,\quad y_0=0\)
+\[
+\begin{array}{c}
+f(1,0,z)=1^2 + 0 + e^{z} - 4 = e^{z} - 3 \\[6pt]
+f(x_0,y_0,z_0)=0 \Rightarrow z=\ln 3 \\[6pt]
+(x_0,y_0,z_0)=(1,0,\ln 3)
+\end{array}
+\]
+\underline{Hipótesis del teorema}
+\[
+\begin{array}{c}
+\frac{\partial f}{\partial z}(1,0,\ln{3}) \neq 0 \\ [6pt]
+\frac{\partial f}{\partial z}(1,0,\ln{3}) = e^z \Rightarrow e^{\ln{3}}=3 \neq 0
+\end{array}
+\]
+Se puede despejar \(z\) como función de \(f(x,y)\)
+\[
+\begin{array}{c}
+\exists \quad F: \mathbb{R}^2 \to \mathbb{R}, \quad F(1,0)=\ln{3}, \quad f(x,y,F(x,y))=0 \quad\text{cerca de}\quad (1,0) \\ [6pt]
+\text{o sea:}\quad z=F(x,y)
+\end{array}
+\]
+Derivada de la Fórmula Implícita:
+\[
+\nabla F(1,0)=-\frac{1}{\frac{\partial f}{\partial z}(1,0,\ln{3})}(\frac{\frac{\partial f}{\partial x}(1,0,\ln{3})}{\frac{\partial f}{\partial y}(1,0,\ln{3})})
+\]
+Calculamos parciales faltantes:
+\[
+\frac{\partial f}{\partial x}=2x, \quad \frac{\partial f}{\partial y}=1, \quad \frac{\partial f}{\partial z}=e^z
+\]
+En \((1,0,\ln{3})\):
+\[
+\begin{array}{c}
+\frac{\partial f}{\partial x}=2, \quad \frac{\partial f}{\partial y}=1, \quad \frac{\partial f}{\partial z}=3 \\[6pt]
+\nabla F(1,0)=-\frac{1}{3}\begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{pmatrix} -\frac{2}{3} \\ -\frac{1}{3} \end{pmatrix} \\[6pt]
+F_x(1,0)=-\frac{2}{3}, \quad F_y(1,0)=-\frac{1}{3}
+\end{array}
+\]
+% ------------------------------------------------------------
+% PARTE 5
+% ------------------------------------------------------------
+
+\subsection*{¿Qué relación tiene el Teorema de la Función Implícita con el Teorema de la Función Inversa?}
+\addcontentsline{toc}{subsection}{Relación entre Función Implícita y Función Inversa}
+
+El Teorema de la Función Implícita puede verse como un caso particular del Teorema de la Función Inversa. La idea central consiste en reformular la ecuación implícita como la primera componente de una transformación cuya invertibilidad garantice la posibilidad de despejar la variable dependiente.
+
+El teorema de al Función Inversa:\\
+Tenemos una función \(H(u,v)\) y su Jacobiano (respecto a todas sus variables) es invertible en un punto, entonces podes invertir \(H\) localmente:
+\[
+(u,v)=H^{-1}(x,y)
+\]
+y la inversa es suave. Es decir, si la transformación no "aplana" direcciones, entonces se puede deshacer localmente.\\
+\\
+El teorema de la Función Implícita:\\
+Si tenes una función \(G(x,y)\) y el Jacobiano respecto de \(y\) es invertible, entonces podes despejar:
+\[
+G(x,y)=0 \Rightarrow y=F(x)
+\]
+Podes resolver \(y\) aunque no puedas despejar explícitamente.\\
+\\
+Entonces, el teorema de la función implícita es un caso particular del teorema de la función inversa.\\
+Se define \(\to H(x,y)=(x,G(x,y))\) no se resuelve \(G\) directamente, se toma a \(x\) como primera componente. \\
+La función H tiene dimensión:
+\begin{itemize}
+    \item Entrada: \((x,y)\in \mathbb{R}^{n+m}\)
+    \item Salida: \((x,y)\in \mathbb{R}^{n+m}\) donde \(z=G(x,y)\)
+\end{itemize}
+\[
+DH(x,y)=\begin{pmatrix} I_n & 0 \\ \frac{\partial G}{\partial x} & \frac{\partial G}{\partial y} \end{pmatrix}
+\]
+Esta matriz es invertible \(\iff \frac{\partial G}{\partial y}\) es invertible.
+Porque una matriz triangular por bloques es invertible si sus diagonales lo son:
+\begin{itemize}
+    \item \(I_n\) es invertible
+    \item Condición \(\to \frac{\partial G}{\partial y}\) 
+\end{itemize}
+Esto es exactamente la hipótesis del teorema de la función implícita.\\
+Si \(\frac{\partial G}{\partial y} \neq 0, \quad DH(x_0,y_0)\) es invertible y por teorema de al inversa, H es localmente invertible.
+La local inversa satisface:
+\[
+H^{-1}(x,0)=(x,F(x)),
+\]
+Aplicando H a ambos lados:
+\[
+H(x,F(x))=(x,G(x,F(x)))=(x,0),
+\]
+lo cual implica
+\[
+G(x,F(x))=0
+\]

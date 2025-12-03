@@ -1,0 +1,153 @@
+\chapter{Ejercicio 2}
+
+% ------------------------------------------------------------
+% PARTE 1
+% ------------------------------------------------------------
+
+\subsection*{Determine si es posible expresar \(y\) como función de \(x\) cerca del punto \((0,1)\). En caso de serlo, calcule la derivada \(\frac{\partial y}{\partial x}\) en dicho punto.}
+\addcontentsline{toc}{subsection}{Expresar \(y\) como función de \(x\) cerca del punto \((0,1)\)}
+
+\[
+\text{Considere la función}\quad f(x,y)=e^x+xy-2y^2
+\]
+
+Queremos ver si existe \(y=g(x)\) tal que
+\[
+f(x,g(x))=0
+\]
+Evaluar \((0,1)\)
+\[
+f(0,1)=e^0+0\cdot1-2(1)^2=-1 \neq 0
+\]
+El punto \((0,1)\) pertenece a la curva de nivel
+\[
+f(x,y)=f(0,1)=-1
+\]
+Usamos el teorema para \(f(x,y)=c\) fuera de la función original. El punto \(0,1\) no pertenece a la curva \(f(x,y)=0\), sino a la curva de nivel \(f(x,y)=-1\).
+Para aplicar el Teorema de la Función Implícita basta trabajar con la ecuación que define la curva que pasa por el punto.\\
+\(\exists \ y=F(x)\) clase \(C^1\) en un vecindario \(x=0\) siempre que:
+\[
+\begin{array}{c}
+\frac{\partial f}{\partial y}(0,1)\neq 0 \\ [6pt]
+\frac{\partial f}{\partial y}(x,y)=x-4y \to en (0,1) = -4 \neq 0
+\end{array}
+\]
+Es posible expresar \(y\) como función de \(x\) localmente:
+\[
+\begin{array}{c}
+y=F(x) \text{ tal que } f(x,F(x))=-1 \\ [6pt]
+F'(x_0)=-\frac{f_x(x_0,y_0)}{f_y(x_0,y_0)} \\ [6pt]
+f_x(x,y)=e^x+y, \quad f_y(x_0,y_0)=x-4y
+\end{array}
+\]
+En \((0,1)\):
+\[
+\begin{array}{c}
+f_x(0,1)=2, \quad f_y(0,1)=-4 \\ [6pt]
+\frac{\partial y}{\partial x}(0,1) = -\frac{2}{-4} = \frac{1}{2}
+\end{array}
+\]
+En el entorno del punto \((0,1)\), la ecuación \(f(x,y)=-1\) define de manera única una función \(y=F(x)\) de clase \(C^1\). La derivada de dicha función en el punto dado es:
+\[
+\frac{\partial y}{\partial x}(0,1) = \frac{1}{2}
+\]
+
+% ------------------------------------------------------------
+% PARTE 2
+% ------------------------------------------------------------
+
+\subsection*{Explique cómo se relaciona el resultado anterior con las curvas de nivel de \(f(x,y)\).}
+\addcontentsline{toc}{subsection}{Relación entre el resultado anterior y las curvas de nivel}
+
+Curva de nivel relevante:
+\[
+f(x,y) = e^x+xy-2y^2=-1, \text{ porque } f(0,1)=-1
+\]
+Esa curva es el conjunto de puntos que mantienen constante el valor de f.\\
+Cuando decimos que \(y=F(x)\) existe, significa que esa curva de nivel (curva en el plano) puede parametrizarse localmente como; \((x,F(x))\). La curva se puede ver como el gráfico de la función cerca del punto dado.\\
+\(F'(0)\) es la pendiente de esa curva en el punto \((0,1)\). La pendiente de la tangente a la curva de nivel \(f=-1\) en \((0,1)\).\\
+\underline{Geométricamente}
+\[
+f(x,F(x))=-1
+\]
+al diferenciarla:
+\[
+f_x+fyF'(x)=0 \Rightarrow F'(x) = -\frac{f_x}{f_y}
+\]
+\underline{La relación del gradiente}
+\[
+\begin{array}{c}
+\nabla f(0,1) \perp \text{ curva de nivel } f=-1 \\ [6pt]
+\nabla f(x,y)=(f_x,f_y)=(e^x+y,x-4y)
+\end{array}
+\]
+En \((0,1)\):
+\[
+\nabla f(0,1)=(2,-4)
+\]
+Un vector director de la curva de nivel en ese punto debe ser perpendicular a ese gradiente.\\
+Busco \((1,m)\):
+\[
+\begin{array}{c}
+(1,m)\cdot(2,-4)=0 \\ [6pt]
+2-4m=0 \Rightarrow m=\frac{1}{2}
+\end{array}
+\]
+
+% ------------------------------------------------------------
+% PARTE 3
+% ------------------------------------------------------------
+
+
+\subsection*{Realice una aproximación lineal del valor de \(y\) cerca de \((0,1)\). Estime el valor cuando \(x=0,1\).}
+\addcontentsline{toc}{subsection}{Aproximación Lineal cuando \(x=0,1\).}
+
+Tenemos, \(y(0)=1, \quad y'(0)=1/2\). La aproximación lineal sería:
+\[
+y(x) \approx 1+\frac{1}{2}x
+\]
+Entonces:
+\[
+y(0,1) \approx 1+\frac{1}{2}(0,1)=1+0,05=1,05
+\]
+Estimación: \(y(0,1)\approx 1,05\)
+
+\begin{figure}[ht!] % Cambiar la h! cambia la posición de la imagen en el documento
+    \centering
+    \includegraphics[scale=0.3]{Imagenes/ex+xy-2y2puntos.png} % Acá va la ruta a la imagen
+    \caption{Imagen de Geogebra con aproximación \(x=0\).} % Pie de imagen
+    \label{fig:función2-top-view} % Esto sirve para referirnos a la imagen en el texto
+    \includegraphics[scale=0.3]{Imagenes/ex+xy-2y2.png} % Acá va la ruta a la imagen
+    \caption{Representación de la curva de nivel en \(x=0\)} % Pie de imagen
+    \label{fig:función2-side-view}
+\end{figure}
+
+% ------------------------------------------------------------
+% PARTE 4
+% ------------------------------------------------------------
+
+\clearpage
+\subsection*{Suponga ahora que \(f(x,y,z)=e^x+xy-2y^2+z^3\). ¿Cómo se interpretaría el teorema en este contexto de tres variables, donde \(f(x,y,z)=0\) define una superficie?}
+\addcontentsline{toc}{subsection}{Suponga ahora que \(f(x,y,z)=e^x+xy-2y^2+z^3\).}
+
+Se quiere determinar si es posible describir dicha superficie \(f(x,y,z)=0\) localmente como el gráfico de una función
+\[
+z=F(x,y)
+\]
+cercano de un punto \((x_0,y_0,z_0)\) que satisfaga \(f(x_0,y_0,z_0)=0\).\\
+El teorema establece que esto es posible siempre que
+\[
+f_z(x_0,y_0,z_0)\neq 0
+\]
+
+En este caso; \(f_z=3z^2\) es aplicable en cualquier punto con \(z_0\neq 0\). Existe una función: \(z=g(x,y)\), tal que localmente:
+\[
+e^x+xy-2y^2+(g(x,y))^3=0
+\]
+y sus derivadas:
+\[
+g_x(x_0,y_0)=-\frac{f_x}{f_z},\quad g_y(x_0,y_0)=-\frac{f_y}{f_z}
+\]
+\(f=0\) se puede ver como la gráfica de una función \(z=g(x,y)\). Es solo posible cuando la superposición no es vertical respecto a la dirección de \(z\). La condición \(f_z\neq 0\) implica que la superficie no presenta verticalidad en la dirección del eje \(z\): su normal no es paralela al plano \(xy\) \\
+En cambio, en puntos donde \(z=0\), se tiene \(f_z=0\) y el Teorema de la función implícita no garantiza la existencia de una función \(z=F(x,y)\); la superficie podría tener un pliegue o cambiar de orientación.
+

@@ -1,0 +1,40 @@
+\chapter{Ejercicio 3}
+
+\subsection*{Sean \(f,g: \mathbb{R}\to \mathbb{R}\) tales que \(g(x)=f(x)+(f(x))^5\quad \forall x \in \mathbb{R}\). Probar que si \(g\) es de clase \(C^\infty\), entonces \(f\) también lo es.}
+\addcontentsline{toc}{subsection}{Relación g de \(C^\infty\) con \(f\)}
+
+La función debe reescribirse introduciendo la función auxiliar:
+\[
+H:\mathbb{R} \to \mathbb{R}, \quad H(y)=y+y^5
+\]
+con esta notación se obtiene \(g(x)=H(f(x))\).\\
+Por lo tanto, la relación \(g\) y \(f\) es una composición:
+\[
+g=H \circ f
+\]
+para estudiar la regularidad de \(f\), es escencial comprender las propiedades de \(H\), especialmente la regularidad de su inversa.
+H es un polinomio, y por tanto pertenece a la clase \(C^\infty\).\\
+Su derivada es:
+\[
+H'(y)=1+5y^4>0, \quad \forall y \in \mathbb{R}
+\]
+entonces:
+\begin{itemize}
+    \item \(H\) es inyectiva
+    \item \(H\) es estrictamente creciente
+    \item Al ser continua y con límite \(\pm\infty\) cuando \(y\to\pm\infty\), es sobreyectiva.
+    \item \(H\) es biyectiva y posee una inversa global: \(H^{-1}:\mathbb{R}\to\mathbb{R}\)
+\end{itemize}
+Además por el teorema de función inversa dado que \(H'(y)\neq0\) en todo punto, la inversa \(H^{-1}\) no solo existe sino que es suave:
+\[
+H^{-1}\in C^\infty(\mathbb{R})
+\]
+A partir de la identidad \(g=H(f)\), se aplica \(H^{-1}\) a ambos lados: 
+\[
+f(x)=H^{-1}(g(x))
+\]
+caracteriza a \(f\) en términos de \(g\) y de \(H^{-1}\). Dado que \(g\in C^\infty\)(hipótesis) y \(H^{-1}\in C^\infty(\mathbb{R})\) por el análisis, se concluye que la función compuesta
+\[
+f=H^{-1}\circ g
+\]
+es también de clase \(C^\infty\), porque la composición de funciones suaves sigue siendo suave. La regularidad infinita de \(g\) se transmite a \(f\) sin pérdida alguna, gracias a la suavidad global de \(H^{-1}\).
